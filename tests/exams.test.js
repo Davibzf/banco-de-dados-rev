@@ -2,7 +2,18 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { buildExam, gradeExam, readExam, EXAM_KEY } from '../public/exams-core.js';
+import { examLessons } from '../public/exam-lessons.js';
 const bank=JSON.parse(readFileSync(new URL('../public/exams.json',import.meta.url),'utf8'));
+
+test('cada uma das 60 questões possui conceito, exemplo, passos e erro comum para estudar',()=>{
+ assert.equal(Object.keys(examLessons).length,20);
+ for(const q of bank){
+  const lesson=examLessons[q.base];assert.ok(lesson,q.id);
+  for(const field of ['concept','example','mistake'])assert.ok(lesson[field].length>60,`${q.id}: ${field}`);
+  assert.ok(lesson.steps.length>=2);
+  assert.ok(lesson.steps.every(step=>step.length>25));
+ }
+});
 test('60 questões no nível dos dois simulados, três variações de cada uma das 20 bases',()=>{
  assert.equal(bank.length,60);assert.equal(new Set(bank.map(q=>q.id)).size,60);
  assert.equal(new Set(bank.map(q=>q.prompt+'|'+q.sql)).size,60);

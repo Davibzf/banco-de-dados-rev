@@ -9,6 +9,9 @@ Decisão: módulo independente, banco próprio de 60 questões (três versões d
 - [x] Interface em módulo separado; nova aba e disposição móvel para seis links.
 - [x] Testes locais: 10 testes Node e verificações Playwright de simulados e regressão do treino geral.
 - [x] Verificação visual em celular, navegação, retomada após reload, correção só ao final e nota 100% em SM2.
-- [ ] Publicar e verificar ambiente de produção.
+- [x] Publicar e verificar ambiente de produção.
 
 Precisão pedagógica: restringir todos os assuntos aos 20 temas enviados. Esclarecer preservação de lado no RIGHT JOIN; assumir CPF único não nulo para equivalência exata OR/UNION; classificar políticas de acesso como segurança sem afirmar ausência absoluta de custo. Reformular a afirmação sobre módulos do SGBD para distinguir claramente otimizador de consultas e controle de transações.
+
+Produção verificada: https://banco-de-dados-rev.vercel.app/#simulados. Banco adicional respondeu HTTP 200 com 60 questões. Fluxos de simulados e regressão do treino passaram no site publicado.
+

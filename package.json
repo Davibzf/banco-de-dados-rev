@@ -1,1 +1,1 @@
-{"name":"banco-de-dados-rev","version":"1.0.0","private":true,"type":"module","scripts":{"test":"node --test tests/core.test.js","check:bank":"python scripts/generate_questions.py --check","dev":"python -m http.server 4173 --directory public"}}
+{"name":"banco-de-dados-rev","version":"1.1.0","private":true,"type":"module","scripts":{"test":"node --test tests/*.test.js","check:bank":"python scripts/generate_questions.py --check && python scripts/generate_exams.py --check","dev":"python -m http.server 4173 --directory public"}}

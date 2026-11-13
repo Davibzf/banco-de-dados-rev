@@ -1,0 +1,1109 @@
+[
+  {
+    "id": "sm1-01-v1",
+    "base": "sm1-01",
+    "group": "sm1",
+    "title": "Adicionar coluna",
+    "prompt": "Uma tabela PROFESSOR já existe. Qual comando SQL acrescenta a coluna Email do tipo VARCHAR(80)?",
+    "options": [
+      "ALTER TABLE PROFESSOR MODIFY COLUMN Email VARCHAR(80);",
+      "INSERT COLUMN Email VARCHAR(80) INTO PROFESSOR;",
+      "ADD COLUMN Email VARCHAR(80) TO TABLE PROFESSOR;",
+      "ALTER TABLE PROFESSOR ADD COLUMN Email VARCHAR(80);",
+      "ALTER DATABASE PROFESSOR ADD COLUMN Email VARCHAR(80);"
+    ],
+    "answer": 3,
+    "explanation": "ALTER TABLE atua na estrutura da tabela. ADD COLUMN cria a nova coluna; MODIFY não é o comando de adição mostrado no PostgreSQL.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-02-v1",
+    "base": "sm1-02",
+    "group": "sm1",
+    "title": "Ordem do UPDATE",
+    "prompt": "É necessário modificar Nome de um registro da tabela CLIENTE. Preencha I, II e III para obter um comando de atualização válido.",
+    "options": [
+      "SET - UPDATE - WHERE",
+      "UPDATE - WHERE - SET",
+      "SET - WHERE - UPDATE",
+      "UPDATE - SET - WHERE",
+      "WHERE - SET - UPDATE"
+    ],
+    "answer": 3,
+    "explanation": "A estrutura é UPDATE tabela SET coluna = valor WHERE condição. SET define o novo valor e WHERE limita os registros alterados.",
+    "sql": "I CLIENTE\nII Nome = 'Ariana'\nIII Codigo = 1;",
+    "statements": []
+  },
+  {
+    "id": "sm1-03-v1",
+    "base": "sm1-03",
+    "group": "sm1",
+    "title": "Entidade fraca",
+    "prompt": "Cada trecho pertence a uma estrada e pode ser identificado pelo código da estrada junto ao número do trecho. Qual modelagem é compatível com essa identificação?",
+    "options": [
+      "TRECHO deve ser um atributo multivalorado de qualquer entidade não relacionada.",
+      "TRECHO precisa ser uma especialização de ESTRADA.",
+      "TRECHO pode ser modelada como entidade fraca em relação a ESTRADA.",
+      "TRECHO não pode possuir atributos.",
+      "ESTRADA deve ser eliminado, mantendo somente TRECHO."
+    ],
+    "answer": 2,
+    "explanation": "A identificação completa usa a chave da entidade proprietária e um identificador parcial. Dependência de identificação pode ser representada por entidade fraca; ser parte de algo não significa ser um subtipo.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-04-v1",
+    "base": "sm1-04",
+    "group": "sm1",
+    "title": "Entidades e atributos",
+    "prompt": "Considere o Modelo Entidade-Relacionamento aplicado a EMPREGADO. Quais afirmações estão corretas?",
+    "options": [
+      "Apenas II, III e IV.",
+      "Apenas I e II.",
+      "I, II, III e IV.",
+      "Apenas I.",
+      "Apenas I, III e IV."
+    ],
+    "answer": 2,
+    "explanation": "As quatro afirmações descrevem a introdução ao MER: entidades representam elementos distinguíveis; atributos descrevem suas propriedades e seus valores constituem dados armazenados.",
+    "sql": "",
+    "statements": [
+      "I. Uma entidade representa algo distinguível do domínio modelado.",
+      "II. Entidades podem representar objetos físicos ou conceitos.",
+      "III. Os valores dos atributos compõem grande parte dos dados registrados no banco.",
+      "IV. EMPREGADO pode ser descrita por atributos como nome, endereço e salário."
+    ]
+  },
+  {
+    "id": "sm1-05-v1",
+    "base": "sm1-05",
+    "group": "sm1",
+    "title": "Desnormalização",
+    "prompt": "Um relatório frequente consulta muitas tabelas e o custo das junções foi medido como elevado. Em qual situação a desnormalização pode ser considerada?",
+    "options": [
+      "Para transformar qualquer coluna em chave estrangeira.",
+      "Somente porque existem muitas colunas obrigatórias.",
+      "Quando se quiser eliminar todas as regras de integridade.",
+      "Sempre que houver muitas atualizações, sem medir as consultas.",
+      "Quando a redução de junções em consultas frequentes justificar a redundância controlada."
+    ],
+    "answer": 4,
+    "explanation": "A desnormalização pode favorecer leituras frequentes, mas exige medir o ganho e manter as informações redundantes consistentes. Atualizações frequentes podem aumentar seu custo.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-06-v1",
+    "base": "sm1-06",
+    "group": "sm1",
+    "title": "Modelo relacional",
+    "prompt": "Um sistema usa o modelo relacional. Como seus dados são representados?",
+    "options": [
+      "Uma coleção de tabelas para representar dados e relações entre eles.",
+      "Uma coleção de cores e fontes de documentos.",
+      "Somente uma árvore de arquivos sem atributos.",
+      "Uma coleção de tabelas de decisão sem registros.",
+      "Apenas hierarquias de permissões, sem dados."
+    ],
+    "answer": 0,
+    "explanation": "No modelo relacional, relações são representadas por tabelas. Linhas são tuplas, colunas são atributos e chaves ajudam a representar vínculos.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-07-v1",
+    "base": "sm1-07",
+    "group": "sm1",
+    "title": "Bancos navegacionais",
+    "prompt": "Os sistemas históricos IDS e IMS utilizavam estruturas de rede e árvore. Como esse grupo é conhecido?",
+    "options": [
+      "Arquivos de estilos.",
+      "Navegacionais.",
+      "Planilhas de cálculo.",
+      "Relacionais.",
+      "Exclusivamente documentais modernos."
+    ],
+    "answer": 1,
+    "explanation": "Bancos históricos em rede e hierárquicos são associados ao modelo navegacional: o acesso aos registros percorre caminhos e vínculos.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-08-v1",
+    "base": "sm1-08",
+    "group": "sm1",
+    "title": "Módulos do SGBD",
+    "prompt": "Analise as afirmações sobre os módulos de um SGBD.",
+    "options": [
+      "Somente II.",
+      "Somente III.",
+      "Somente I.",
+      "Somente II e III.",
+      "Somente I e II."
+    ],
+    "answer": 4,
+    "explanation": "O catálogo mantém metadados. Na utilização de SQL embutido, o pré-compilador pode separar os comandos SQL da linguagem hospedeira. O otimizador escolhe estratégias de consulta; confirmar ou desfazer transações é outra responsabilidade.",
+    "sql": "",
+    "statements": [
+      "I. O catálogo guarda metadados do sistema de banco de dados.",
+      "II. Um pré-compilador pode separar SQL embutido dos comandos da linguagem de programação.",
+      "III. O otimizador é o módulo responsável por confirmar e desfazer todas as transações."
+    ]
+  },
+  {
+    "id": "sm1-09-v1",
+    "base": "sm1-09",
+    "group": "sm1",
+    "title": "Fatores de desempenho",
+    "prompt": "Na classificação didática de fatores de projeto físico, qual item é principalmente de segurança, em vez de caracterizar a carga e os limites de desempenho?",
+    "options": [
+      "Limites de tempo das consultas.",
+      "Volume de dados processado pelas operações.",
+      "Consultas e transações executadas.",
+      "Frequência das atualizações.",
+      "Organização de políticas de acesso aos dados."
+    ],
+    "answer": 4,
+    "explanation": "Políticas de acesso são classificadas principalmente como segurança; consultas, volumes, frequências e prazos caracterizam desempenho. Isso não significa que verificações de acesso nunca tenham custo.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-10-v1",
+    "base": "sm1-10",
+    "group": "sm1",
+    "title": "DML",
+    "prompt": "Qual conjunto de comandos SQL modifica o estado ou a instância do banco?",
+    "options": [
+      "INSERT, UPDATE e DELETE.",
+      "CREATE, UPDATE e DROP.",
+      "CREATE, ALTER e DROP.",
+      "INSERT, ALTER e DROP.",
+      "GRANT, REVOKE e CREATE."
+    ],
+    "answer": 0,
+    "explanation": "INSERT insere, UPDATE altera e DELETE remove linhas. CREATE, ALTER e DROP pertencem à definição das estruturas, chamada DDL.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-01-v2",
+    "base": "sm1-01",
+    "group": "sm1",
+    "title": "Adicionar coluna",
+    "prompt": "Uma tabela ALUNO já existe. Qual comando SQL acrescenta a coluna Contato do tipo VARCHAR(90)?",
+    "options": [
+      "ALTER TABLE ALUNO ADD COLUMN Contato VARCHAR(90);",
+      "ALTER DATABASE ALUNO ADD COLUMN Contato VARCHAR(90);",
+      "INSERT COLUMN Contato VARCHAR(90) INTO ALUNO;",
+      "ADD COLUMN Contato VARCHAR(90) TO TABLE ALUNO;",
+      "ALTER TABLE ALUNO MODIFY COLUMN Contato VARCHAR(90);"
+    ],
+    "answer": 0,
+    "explanation": "ALTER TABLE atua na estrutura da tabela. ADD COLUMN cria a nova coluna; MODIFY não é o comando de adição mostrado no PostgreSQL.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-02-v2",
+    "base": "sm1-02",
+    "group": "sm1",
+    "title": "Ordem do UPDATE",
+    "prompt": "É necessário modificar Email de um registro da tabela PROFESSOR. Preencha I, II e III para obter um comando de atualização válido.",
+    "options": [
+      "UPDATE - WHERE - SET",
+      "SET - WHERE - UPDATE",
+      "WHERE - SET - UPDATE",
+      "UPDATE - SET - WHERE",
+      "SET - UPDATE - WHERE"
+    ],
+    "answer": 3,
+    "explanation": "A estrutura é UPDATE tabela SET coluna = valor WHERE condição. SET define o novo valor e WHERE limita os registros alterados.",
+    "sql": "I PROFESSOR\nII Email = 'ana@exemplo.com'\nIII Codigo = 2;",
+    "statements": []
+  },
+  {
+    "id": "sm1-03-v2",
+    "base": "sm1-03",
+    "group": "sm1",
+    "title": "Entidade fraca",
+    "prompt": "Cada item pertence a um pedido e é identificado pelo código do pedido junto ao número do item. Qual modelagem é compatível com essa identificação?",
+    "options": [
+      "ITEM não pode possuir atributos.",
+      "ITEM deve ser um atributo multivalorado de qualquer entidade não relacionada.",
+      "ITEM pode ser modelada como entidade fraca em relação a PEDIDO.",
+      "ITEM precisa ser uma especialização de PEDIDO.",
+      "PEDIDO deve ser eliminado, mantendo somente ITEM."
+    ],
+    "answer": 2,
+    "explanation": "A identificação completa usa a chave da entidade proprietária e um identificador parcial. Dependência de identificação pode ser representada por entidade fraca; ser parte de algo não significa ser um subtipo.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-04-v2",
+    "base": "sm1-04",
+    "group": "sm1",
+    "title": "Entidades e atributos",
+    "prompt": "Considere o Modelo Entidade-Relacionamento aplicado a ALUNO. Quais afirmações estão corretas?",
+    "options": [
+      "I, II, III e IV.",
+      "Apenas II, III e IV.",
+      "Apenas I e II.",
+      "Apenas I, III e IV.",
+      "Apenas I."
+    ],
+    "answer": 0,
+    "explanation": "As quatro afirmações descrevem a introdução ao MER: entidades representam elementos distinguíveis; atributos descrevem suas propriedades e seus valores constituem dados armazenados.",
+    "sql": "",
+    "statements": [
+      "I. Uma entidade representa algo distinguível do domínio modelado.",
+      "II. Entidades podem representar objetos físicos ou conceitos.",
+      "III. Os valores dos atributos compõem grande parte dos dados registrados no banco.",
+      "IV. ALUNO pode ser descrita por atributos como nome, nascimento e matrícula."
+    ]
+  },
+  {
+    "id": "sm1-05-v2",
+    "base": "sm1-05",
+    "group": "sm1",
+    "title": "Desnormalização",
+    "prompt": "Uma aplicação de consulta precisa reduzir o custo de junções repetidas em leituras frequentes. Em qual situação a desnormalização pode ser considerada?",
+    "options": [
+      "Somente porque existem muitas colunas obrigatórias.",
+      "Quando a redução de junções em consultas frequentes justificar a redundância controlada.",
+      "Sempre que houver muitas atualizações, sem medir as consultas.",
+      "Quando se quiser eliminar todas as regras de integridade.",
+      "Para transformar qualquer coluna em chave estrangeira."
+    ],
+    "answer": 1,
+    "explanation": "A desnormalização pode favorecer leituras frequentes, mas exige medir o ganho e manter as informações redundantes consistentes. Atualizações frequentes podem aumentar seu custo.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-06-v2",
+    "base": "sm1-06",
+    "group": "sm1",
+    "title": "Modelo relacional",
+    "prompt": "Na passagem para o modelo lógico relacional, qual estrutura representa os dados e seus vínculos?",
+    "options": [
+      "Somente uma árvore de arquivos sem atributos.",
+      "Uma coleção de tabelas para representar dados e relações entre eles.",
+      "Apenas hierarquias de permissões, sem dados.",
+      "Uma coleção de cores e fontes de documentos.",
+      "Uma coleção de tabelas de decisão sem registros."
+    ],
+    "answer": 1,
+    "explanation": "No modelo relacional, relações são representadas por tabelas. Linhas são tuplas, colunas são atributos e chaves ajudam a representar vínculos.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-07-v2",
+    "base": "sm1-07",
+    "group": "sm1",
+    "title": "Bancos navegacionais",
+    "prompt": "Na década de 1960, bancos baseados no percurso de caminhos em redes e árvores eram classificados como quais?",
+    "options": [
+      "Arquivos de estilos.",
+      "Planilhas de cálculo.",
+      "Exclusivamente documentais modernos.",
+      "Navegacionais.",
+      "Relacionais."
+    ],
+    "answer": 3,
+    "explanation": "Bancos históricos em rede e hierárquicos são associados ao modelo navegacional: o acesso aos registros percorre caminhos e vínculos.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-08-v2",
+    "base": "sm1-08",
+    "group": "sm1",
+    "title": "Módulos do SGBD",
+    "prompt": "Durante a revisão da arquitetura de um SGBD, avalie as afirmações.",
+    "options": [
+      "Somente II.",
+      "Somente II e III.",
+      "Somente III.",
+      "Somente I.",
+      "Somente I e II."
+    ],
+    "answer": 4,
+    "explanation": "O catálogo mantém metadados. Na utilização de SQL embutido, o pré-compilador pode separar os comandos SQL da linguagem hospedeira. O otimizador escolhe estratégias de consulta; confirmar ou desfazer transações é outra responsabilidade.",
+    "sql": "",
+    "statements": [
+      "I. O catálogo guarda metadados do sistema de banco de dados.",
+      "II. Um pré-compilador pode separar SQL embutido dos comandos da linguagem de programação.",
+      "III. O otimizador é o módulo responsável por confirmar e desfazer todas as transações."
+    ]
+  },
+  {
+    "id": "sm1-09-v2",
+    "base": "sm1-09",
+    "group": "sm1",
+    "title": "Fatores de desempenho",
+    "prompt": "Um projetista levanta consultas, frequências e prazos de resposta. Qual item pertence principalmente à organização da segurança?",
+    "options": [
+      "Organização de políticas de acesso aos dados.",
+      "Volume de dados processado pelas operações.",
+      "Limites de tempo das consultas.",
+      "Frequência das atualizações.",
+      "Consultas e transações executadas."
+    ],
+    "answer": 0,
+    "explanation": "Políticas de acesso são classificadas principalmente como segurança; consultas, volumes, frequências e prazos caracterizam desempenho. Isso não significa que verificações de acesso nunca tenham custo.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-10-v2",
+    "base": "sm1-10",
+    "group": "sm1",
+    "title": "DML",
+    "prompt": "Para inserir linhas, atualizar seus valores e excluir registros, qual conjunto é usado?",
+    "options": [
+      "GRANT, REVOKE e CREATE.",
+      "INSERT, ALTER e DROP.",
+      "CREATE, ALTER e DROP.",
+      "CREATE, UPDATE e DROP.",
+      "INSERT, UPDATE e DELETE."
+    ],
+    "answer": 4,
+    "explanation": "INSERT insere, UPDATE altera e DELETE remove linhas. CREATE, ALTER e DROP pertencem à definição das estruturas, chamada DDL.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-01-v3",
+    "base": "sm1-01",
+    "group": "sm1",
+    "title": "Adicionar coluna",
+    "prompt": "Uma tabela CLIENTE já existe. Qual comando SQL acrescenta a coluna Observacao do tipo VARCHAR(120)?",
+    "options": [
+      "ADD COLUMN Observacao VARCHAR(120) TO TABLE CLIENTE;",
+      "ALTER TABLE CLIENTE ADD COLUMN Observacao VARCHAR(120);",
+      "ALTER TABLE CLIENTE MODIFY COLUMN Observacao VARCHAR(120);",
+      "INSERT COLUMN Observacao VARCHAR(120) INTO CLIENTE;",
+      "ALTER DATABASE CLIENTE ADD COLUMN Observacao VARCHAR(120);"
+    ],
+    "answer": 1,
+    "explanation": "ALTER TABLE atua na estrutura da tabela. ADD COLUMN cria a nova coluna; MODIFY não é o comando de adição mostrado no PostgreSQL.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-02-v3",
+    "base": "sm1-02",
+    "group": "sm1",
+    "title": "Ordem do UPDATE",
+    "prompt": "É necessário modificar Nome de um registro da tabela ALUNO. Preencha I, II e III para obter um comando de atualização válido.",
+    "options": [
+      "SET - WHERE - UPDATE",
+      "SET - UPDATE - WHERE",
+      "UPDATE - WHERE - SET",
+      "UPDATE - SET - WHERE",
+      "WHERE - SET - UPDATE"
+    ],
+    "answer": 3,
+    "explanation": "A estrutura é UPDATE tabela SET coluna = valor WHERE condição. SET define o novo valor e WHERE limita os registros alterados.",
+    "sql": "I ALUNO\nII Nome = 'Marina'\nIII Codigo = 3;",
+    "statements": []
+  },
+  {
+    "id": "sm1-03-v3",
+    "base": "sm1-03",
+    "group": "sm1",
+    "title": "Entidade fraca",
+    "prompt": "Cada unidade pertence a um edifício e pode ser identificada pelo código do edifício junto ao número da unidade. Qual modelagem é compatível com essa identificação?",
+    "options": [
+      "UNIDADE precisa ser uma especialização de EDIFICIO.",
+      "UNIDADE pode ser modelada como entidade fraca em relação a EDIFICIO.",
+      "UNIDADE não pode possuir atributos.",
+      "EDIFICIO deve ser eliminado, mantendo somente UNIDADE.",
+      "UNIDADE deve ser um atributo multivalorado de qualquer entidade não relacionada."
+    ],
+    "answer": 1,
+    "explanation": "A identificação completa usa a chave da entidade proprietária e um identificador parcial. Dependência de identificação pode ser representada por entidade fraca; ser parte de algo não significa ser um subtipo.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-04-v3",
+    "base": "sm1-04",
+    "group": "sm1",
+    "title": "Entidades e atributos",
+    "prompt": "Considere o Modelo Entidade-Relacionamento aplicado a PRODUTO. Quais afirmações estão corretas?",
+    "options": [
+      "Apenas I, III e IV.",
+      "Apenas II, III e IV.",
+      "Apenas I e II.",
+      "Apenas I.",
+      "I, II, III e IV."
+    ],
+    "answer": 4,
+    "explanation": "As quatro afirmações descrevem a introdução ao MER: entidades representam elementos distinguíveis; atributos descrevem suas propriedades e seus valores constituem dados armazenados.",
+    "sql": "",
+    "statements": [
+      "I. Uma entidade representa algo distinguível do domínio modelado.",
+      "II. Entidades podem representar objetos físicos ou conceitos.",
+      "III. Os valores dos atributos compõem grande parte dos dados registrados no banco.",
+      "IV. PRODUTO pode ser descrita por atributos como descrição, preço e código."
+    ]
+  },
+  {
+    "id": "sm1-05-v3",
+    "base": "sm1-05",
+    "group": "sm1",
+    "title": "Desnormalização",
+    "prompt": "Após medir consultas recorrentes, o projetista avalia armazenar uma informação redundante para evitar junções. Em qual situação a desnormalização pode ser considerada?",
+    "options": [
+      "Quando se quiser eliminar todas as regras de integridade.",
+      "Para transformar qualquer coluna em chave estrangeira.",
+      "Quando a redução de junções em consultas frequentes justificar a redundância controlada.",
+      "Somente porque existem muitas colunas obrigatórias.",
+      "Sempre que houver muitas atualizações, sem medir as consultas."
+    ],
+    "answer": 2,
+    "explanation": "A desnormalização pode favorecer leituras frequentes, mas exige medir o ganho e manter as informações redundantes consistentes. Atualizações frequentes podem aumentar seu custo.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-06-v3",
+    "base": "sm1-06",
+    "group": "sm1",
+    "title": "Modelo relacional",
+    "prompt": "Ao descrever o modelo relacional de um banco escolar, qual afirmação é adequada?",
+    "options": [
+      "Somente uma árvore de arquivos sem atributos.",
+      "Uma coleção de tabelas de decisão sem registros.",
+      "Uma coleção de tabelas para representar dados e relações entre eles.",
+      "Apenas hierarquias de permissões, sem dados.",
+      "Uma coleção de cores e fontes de documentos."
+    ],
+    "answer": 2,
+    "explanation": "No modelo relacional, relações são representadas por tabelas. Linhas são tuplas, colunas são atributos e chaves ajudam a representar vínculos.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-07-v3",
+    "base": "sm1-07",
+    "group": "sm1",
+    "title": "Bancos navegacionais",
+    "prompt": "Um texto descreve bancos históricos hierárquicos e em rede cujo acesso percorre vínculos. Qual denominação corresponde a eles?",
+    "options": [
+      "Exclusivamente documentais modernos.",
+      "Relacionais.",
+      "Arquivos de estilos.",
+      "Navegacionais.",
+      "Planilhas de cálculo."
+    ],
+    "answer": 3,
+    "explanation": "Bancos históricos em rede e hierárquicos são associados ao modelo navegacional: o acesso aos registros percorre caminhos e vínculos.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-08-v3",
+    "base": "sm1-08",
+    "group": "sm1",
+    "title": "Módulos do SGBD",
+    "prompt": "Um aluno escreveu três afirmações sobre catálogo, pré-compilador e otimizador. Quais estão corretas?",
+    "options": [
+      "Somente II e III.",
+      "Somente I e II.",
+      "Somente II.",
+      "Somente I.",
+      "Somente III."
+    ],
+    "answer": 1,
+    "explanation": "O catálogo mantém metadados. Na utilização de SQL embutido, o pré-compilador pode separar os comandos SQL da linguagem hospedeira. O otimizador escolhe estratégias de consulta; confirmar ou desfazer transações é outra responsabilidade.",
+    "sql": "",
+    "statements": [
+      "I. O catálogo guarda metadados do sistema de banco de dados.",
+      "II. Um pré-compilador pode separar SQL embutido dos comandos da linguagem de programação.",
+      "III. O otimizador é o módulo responsável por confirmar e desfazer todas as transações."
+    ]
+  },
+  {
+    "id": "sm1-09-v3",
+    "base": "sm1-09",
+    "group": "sm1",
+    "title": "Fatores de desempenho",
+    "prompt": "Para diferenciar os temas de segurança e desempenho na implementação de um banco, escolha o item principalmente ligado à segurança.",
+    "options": [
+      "Organização de políticas de acesso aos dados.",
+      "Consultas e transações executadas.",
+      "Volume de dados processado pelas operações.",
+      "Frequência das atualizações.",
+      "Limites de tempo das consultas."
+    ],
+    "answer": 0,
+    "explanation": "Políticas de acesso são classificadas principalmente como segurança; consultas, volumes, frequências e prazos caracterizam desempenho. Isso não significa que verificações de acesso nunca tenham custo.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm1-10-v3",
+    "base": "sm1-10",
+    "group": "sm1",
+    "title": "DML",
+    "prompt": "Quais comandos pertencem à manipulação dos dados, em vez da definição de tabelas?",
+    "options": [
+      "CREATE, UPDATE e DROP.",
+      "GRANT, REVOKE e CREATE.",
+      "INSERT, UPDATE e DELETE.",
+      "CREATE, ALTER e DROP.",
+      "INSERT, ALTER e DROP."
+    ],
+    "answer": 2,
+    "explanation": "INSERT insere, UPDATE altera e DELETE remove linhas. CREATE, ALTER e DROP pertencem à definição das estruturas, chamada DDL.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-01-v1",
+    "base": "sm2-01",
+    "group": "sm2",
+    "title": "Produto entre colunas",
+    "prompt": "A tabela MEDICAMENTO possui CODIGO, DESCRICAO, QUANTIDADE e PRECOUNITARIO. Qual SELECT retorna o identificador, a descrição e o produto da quantidade pelo valor unitário?",
+    "options": [
+      "SELECT CODIGO, DESCRICAO, QUANTIDADE * PRECOUNITARIO FROM MEDICAMENTO;",
+      "SELECT CODIGO, QUANTIDADE + PRECOUNITARIO FROM MEDICAMENTO;",
+      "SELECT CODIGO, DESCRICAO, QUANTIDADE / PRECOUNITARIO FROM MEDICAMENTO;",
+      "SELECT AVG(QUANTIDADE) FROM MEDICAMENTO;",
+      "SELECT SUM(QUANTIDADE) FROM MEDICAMENTO;"
+    ],
+    "answer": 0,
+    "explanation": "O operador * multiplica as duas colunas. A consulta mantém o identificador e a descrição e acrescenta uma expressão calculada; não altera os valores armazenados.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-02-v1",
+    "base": "sm2-02",
+    "group": "sm2",
+    "title": "LIKE e comparação",
+    "prompt": "Qual consulta lista registros de DISCIPLINA cuja DESCRICAO começa com A e cuja CARGAHORARIA é menor que 80?",
+    "options": [
+      "SELECT * FROM DISCIPLINA WHERE DESCRICAO LIKE 'A%' AND CARGAHORARIA < 80;",
+      "SELECT * FROM DISCIPLINA WHERE DESCRICAO LIKE '%A' AND CARGAHORARIA < 80;",
+      "SELECT * FROM DISCIPLINA WHERE DESCRICAO NOT LIKE 'A%' AND CARGAHORARIA < 80;",
+      "SELECT * FROM DISCIPLINA WHERE DESCRICAO LIKE '_A%' AND CARGAHORARIA < 80;",
+      "SELECT * FROM DISCIPLINA WHERE DESCRICAO LIKE 'A%' AND CARGAHORARIA > 80;"
+    ],
+    "answer": 0,
+    "explanation": "LIKE 'A%' fixa a primeira letra e permite qualquer continuação. O operador < atende a menor que 80; AND exige as duas condições.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-03-v1",
+    "base": "sm2-03",
+    "group": "sm2",
+    "title": "Média",
+    "prompt": "Qual comando retorna a média de SALARIO na tabela CARGO?",
+    "options": [
+      "SELECT AVG(SALARIO) FROM CARGO;",
+      "SELECT MAX(SALARIO) FROM CARGO;",
+      "SELECT MIN(SALARIO) FROM CARGO;",
+      "SELECT SUM(SALARIO) FROM CARGO;",
+      "SELECT SALARIO FROM CARGO;"
+    ],
+    "answer": 0,
+    "explanation": "AVG calcula a média dos valores não nulos. MIN e MAX retornam extremos; SUM calcula a soma; selecionar a coluna não produz a média.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-04-v1",
+    "base": "sm2-04",
+    "group": "sm2",
+    "title": "IN e ano de início",
+    "prompt": "Qual consulta retorna UNIDADE nos bairros 'Copacabana','Centro','Barra', com ANOINICIO maior que 2002?",
+    "options": [
+      "SELECT * FROM UNIDADE WHERE BAIRRO LIKE ('Copacabana','Centro','Barra') AND ANOINICIO > 2002;",
+      "SELECT * FROM UNIDADE WHERE BAIRRO IN ('Copacabana','Centro','Barra') AND ANOINICIO > 2002;",
+      "SELECT * FROM UNIDADE WHERE BAIRRO NOT IN ('Copacabana','Centro','Barra') AND ANOINICIO = 2002;",
+      "SELECT * FROM UNIDADE WHERE BAIRRO IN ('Copacabana','Centro','Barra') AND ANOINICIO = 2002;",
+      "SELECT * FROM UNIDADE WHERE BAIRRO NOT IN ('Copacabana','Centro','Barra') AND ANOINICIO > 2002;"
+    ],
+    "answer": 1,
+    "explanation": "IN testa se o bairro pertence à lista. AND combina essa condição com o ano estritamente maior que o limite. NOT IN faria a seleção contrária dos bairros.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-05-v1",
+    "base": "sm2-05",
+    "group": "sm2",
+    "title": "RIGHT OUTER JOIN",
+    "prompt": "Em A JOIN B, deseja-se preservar todas as linhas de B, trazendo A somente nas correspondências. Linhas exclusivas de A não devem ser preservadas. Qual tipo usar?",
+    "options": [
+      "INNER JOIN.",
+      "FULL OUTER JOIN.",
+      "CROSS JOIN.",
+      "LEFT OUTER JOIN.",
+      "RIGHT OUTER JOIN."
+    ],
+    "answer": 4,
+    "explanation": "RIGHT OUTER JOIN preserva a tabela à direita. FULL também preservaria linhas exclusivas da esquerda, o que não é o resultado pedido.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-06-v1",
+    "base": "sm2-06",
+    "group": "sm2",
+    "title": "LEFT JOIN",
+    "prompt": "Qual é o resultado de um LEFT JOIN entre tabelas A e B, nessa ordem?",
+    "options": [
+      "Somente as linhas da esquerda que possuem duas correspondências.",
+      "Todas as linhas da direita, sem preservar as da esquerda.",
+      "Todas as linhas da esquerda e as correspondências da direita; sem par, a direita recebe NULL.",
+      "Todas as linhas dos dois lados, inclusive as exclusivas da direita.",
+      "Apenas as linhas que têm correspondência dos dois lados."
+    ],
+    "answer": 2,
+    "explanation": "LEFT JOIN mantém as ocorrências da tabela à esquerda. A falta de correspondência à direita é representada por NULL nas colunas desse lado.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-07-v1",
+    "base": "sm2-07",
+    "group": "sm2",
+    "title": "Ordem de GROUP BY",
+    "prompt": "Considerando a ordem escrita das cláusulas SQL, qual consulta agrupa EMPREGADO por SEXO e filtra os grupos corretamente?",
+    "options": [
+      "SELECT SEXO, COUNT(*) FROM EMPREGADO HAVING COUNT(*) > 2 ORDER BY SEXO WHERE ATIVO = 1 GROUP BY SEXO;",
+      "SELECT SEXO, COUNT(*) FROM EMPREGADO HAVING COUNT(*) > 2 WHERE ATIVO = 1 ORDER BY SEXO GROUP BY SEXO;",
+      "SELECT SEXO, COUNT(*) FROM EMPREGADO WHERE ATIVO = 1 ORDER BY SEXO GROUP BY SEXO HAVING COUNT(*) > 2;",
+      "SELECT SEXO, COUNT(*) FROM EMPREGADO WHERE ATIVO = 1 GROUP BY SEXO HAVING COUNT(*) > 2 ORDER BY SEXO;",
+      "SELECT SEXO, COUNT(*) FROM EMPREGADO ORDER BY SEXO GROUP BY SEXO HAVING COUNT(*) > 2 WHERE ATIVO = 1;"
+    ],
+    "answer": 3,
+    "explanation": "A ordem é SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY. WHERE filtra linhas; GROUP BY forma grupos e HAVING filtra esses grupos.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-08-v1",
+    "base": "sm2-08",
+    "group": "sm2",
+    "title": "Subconsulta com IN",
+    "prompt": "Considere o vínculo por CODIGONIVEL e a consulta abaixo. Qual é sua finalidade?",
+    "options": [
+      "Exibir todos os níveis, mesmo sem associação.",
+      "Exibir somente níveis com dois ou mais registros em CURSO.",
+      "Exibir somente níveis sem registros em CURSO.",
+      "Exibir todos os registros de CURSO, em vez de níveis.",
+      "Exibir níveis com pelo menos um registro associado em CURSO."
+    ],
+    "answer": 4,
+    "explanation": "A consulta externa retorna linhas da tabela proprietária cujo código aparece no resultado interno. IN exige existência de associação, sem exigir dois registros ou mais.",
+    "sql": "SELECT CODIGONIVEL, DESCRICAO\nFROM NIVEL\nWHERE CODIGONIVEL IN (SELECT DISTINCT CODIGONIVEL FROM CURSO);",
+    "statements": []
+  },
+  {
+    "id": "sm2-09-v1",
+    "base": "sm2-09",
+    "group": "sm2",
+    "title": "OR e UNION",
+    "prompt": "Na tabela EMPREGADO, CPF é único e não nulo. Qual código equivale ao filtro SEXO = 'F' OR SALARIO > 5000, selecionando NOME, CPF e SEXO?",
+    "options": [
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F' EXCEPT SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SALARIO > 5000;",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F' UNION SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SALARIO > 5000;",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SALARIO > 5000;",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F';",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F' AND SALARIO > 5000;"
+    ],
+    "answer": 1,
+    "explanation": "OR reúne quem atende a pelo menos uma condição. UNION reúne os dois resultados. A unicidade de CPF na projeção evita a diferença de multiplicidades que poderia existir sem essa condição.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-10-v1",
+    "base": "sm2-10",
+    "group": "sm2",
+    "title": "Junção externa na prática",
+    "prompt": "As tabelas DEPARTAMENTO e EMPREGADO se relacionam por CODIGOD. O que a consulta abaixo retorna?",
+    "options": [
+      "Todos os registros de DEPARTAMENTO, inclusive os que não têm correspondente em EMPREGADO.",
+      "Todos os registros de EMPREGADO, inclusive os sem correspondente em DEPARTAMENTO.",
+      "Somente registros de DEPARTAMENTO sem correspondente em EMPREGADO.",
+      "Todos os registros das duas tabelas, incluindo os exclusivos de EMPREGADO.",
+      "Somente registros de DEPARTAMENTO com correspondente em EMPREGADO."
+    ],
+    "answer": 0,
+    "explanation": "A tabela à esquerda é preservada pelo LEFT JOIN. Quando não existe registro associado à direita, suas colunas aparecem com NULL. ORDER BY apenas organiza a saída.",
+    "sql": "SELECT A.NOME, B.NOME\nFROM DEPARTAMENTO A LEFT JOIN EMPREGADO B\n  ON A.CODIGOD = B.CODIGOD\nORDER BY A.NOME;",
+    "statements": []
+  },
+  {
+    "id": "sm2-01-v2",
+    "base": "sm2-01",
+    "group": "sm2",
+    "title": "Produto entre colunas",
+    "prompt": "A tabela PRODUTO possui ID, NOME, ESTOQUE e PRECO. Qual SELECT retorna o identificador, a descrição e o produto da quantidade pelo valor unitário?",
+    "options": [
+      "SELECT AVG(ESTOQUE) FROM PRODUTO;",
+      "SELECT ID, NOME, ESTOQUE / PRECO FROM PRODUTO;",
+      "SELECT ID, ESTOQUE + PRECO FROM PRODUTO;",
+      "SELECT SUM(ESTOQUE) FROM PRODUTO;",
+      "SELECT ID, NOME, ESTOQUE * PRECO FROM PRODUTO;"
+    ],
+    "answer": 4,
+    "explanation": "O operador * multiplica as duas colunas. A consulta mantém o identificador e a descrição e acrescenta uma expressão calculada; não altera os valores armazenados.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-02-v2",
+    "base": "sm2-02",
+    "group": "sm2",
+    "title": "LIKE e comparação",
+    "prompt": "Qual consulta lista registros de DISCIPLINA cuja DESCRICAO começa com B e cuja CARGAHORARIA é menor que 60?",
+    "options": [
+      "SELECT * FROM DISCIPLINA WHERE DESCRICAO LIKE '%B' AND CARGAHORARIA < 60;",
+      "SELECT * FROM DISCIPLINA WHERE DESCRICAO NOT LIKE 'B%' AND CARGAHORARIA < 60;",
+      "SELECT * FROM DISCIPLINA WHERE DESCRICAO LIKE 'B%' AND CARGAHORARIA < 60;",
+      "SELECT * FROM DISCIPLINA WHERE DESCRICAO LIKE 'B%' AND CARGAHORARIA > 60;",
+      "SELECT * FROM DISCIPLINA WHERE DESCRICAO LIKE '_B%' AND CARGAHORARIA < 60;"
+    ],
+    "answer": 2,
+    "explanation": "LIKE 'B%' fixa a primeira letra e permite qualquer continuação. O operador < atende a menor que 60; AND exige as duas condições.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-03-v2",
+    "base": "sm2-03",
+    "group": "sm2",
+    "title": "Média",
+    "prompt": "Qual comando retorna a média de SALARIO na tabela FUNCIONARIO?",
+    "options": [
+      "SELECT AVG(SALARIO) FROM FUNCIONARIO;",
+      "SELECT MAX(SALARIO) FROM FUNCIONARIO;",
+      "SELECT SUM(SALARIO) FROM FUNCIONARIO;",
+      "SELECT MIN(SALARIO) FROM FUNCIONARIO;",
+      "SELECT SALARIO FROM FUNCIONARIO;"
+    ],
+    "answer": 0,
+    "explanation": "AVG calcula a média dos valores não nulos. MIN e MAX retornam extremos; SUM calcula a soma; selecionar a coluna não produz a média.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-04-v2",
+    "base": "sm2-04",
+    "group": "sm2",
+    "title": "IN e ano de início",
+    "prompt": "Qual consulta retorna FILIAL nos bairros 'Centro','Aldeota','Meireles', com ANOINICIO maior que 2010?",
+    "options": [
+      "SELECT * FROM FILIAL WHERE BAIRRO LIKE ('Centro','Aldeota','Meireles') AND ANOINICIO > 2010;",
+      "SELECT * FROM FILIAL WHERE BAIRRO IN ('Centro','Aldeota','Meireles') AND ANOINICIO = 2010;",
+      "SELECT * FROM FILIAL WHERE BAIRRO IN ('Centro','Aldeota','Meireles') AND ANOINICIO > 2010;",
+      "SELECT * FROM FILIAL WHERE BAIRRO NOT IN ('Centro','Aldeota','Meireles') AND ANOINICIO > 2010;",
+      "SELECT * FROM FILIAL WHERE BAIRRO NOT IN ('Centro','Aldeota','Meireles') AND ANOINICIO = 2010;"
+    ],
+    "answer": 2,
+    "explanation": "IN testa se o bairro pertence à lista. AND combina essa condição com o ano estritamente maior que o limite. NOT IN faria a seleção contrária dos bairros.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-05-v2",
+    "base": "sm2-05",
+    "group": "sm2",
+    "title": "RIGHT OUTER JOIN",
+    "prompt": "Em NIVEL JOIN CURSO, deseja-se preservar todas as linhas de CURSO, trazendo NIVEL somente nas correspondências. Linhas exclusivas de NIVEL não devem ser preservadas. Qual tipo usar?",
+    "options": [
+      "LEFT OUTER JOIN.",
+      "FULL OUTER JOIN.",
+      "INNER JOIN.",
+      "RIGHT OUTER JOIN.",
+      "CROSS JOIN."
+    ],
+    "answer": 3,
+    "explanation": "RIGHT OUTER JOIN preserva a tabela à direita. FULL também preservaria linhas exclusivas da esquerda, o que não é o resultado pedido.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-06-v2",
+    "base": "sm2-06",
+    "group": "sm2",
+    "title": "LEFT JOIN",
+    "prompt": "Em CLIENTE LEFT JOIN PEDIDO, qual comportamento caracteriza a junção à esquerda?",
+    "options": [
+      "Todas as linhas da direita, sem preservar as da esquerda.",
+      "Somente as linhas da esquerda que possuem duas correspondências.",
+      "Apenas as linhas que têm correspondência dos dois lados.",
+      "Todas as linhas dos dois lados, inclusive as exclusivas da direita.",
+      "Todas as linhas da esquerda e as correspondências da direita; sem par, a direita recebe NULL."
+    ],
+    "answer": 4,
+    "explanation": "LEFT JOIN mantém as ocorrências da tabela à esquerda. A falta de correspondência à direita é representada por NULL nas colunas desse lado.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-07-v2",
+    "base": "sm2-07",
+    "group": "sm2",
+    "title": "Ordem de GROUP BY",
+    "prompt": "Considerando a ordem escrita das cláusulas SQL, qual consulta agrupa ALUNO por BAIRRO e filtra os grupos corretamente?",
+    "options": [
+      "SELECT BAIRRO, COUNT(*) FROM ALUNO HAVING COUNT(*) > 10 WHERE ATIVO = 1 ORDER BY BAIRRO GROUP BY BAIRRO;",
+      "SELECT BAIRRO, COUNT(*) FROM ALUNO WHERE ATIVO = 1 GROUP BY BAIRRO HAVING COUNT(*) > 10 ORDER BY BAIRRO;",
+      "SELECT BAIRRO, COUNT(*) FROM ALUNO HAVING COUNT(*) > 10 ORDER BY BAIRRO WHERE ATIVO = 1 GROUP BY BAIRRO;",
+      "SELECT BAIRRO, COUNT(*) FROM ALUNO ORDER BY BAIRRO GROUP BY BAIRRO HAVING COUNT(*) > 10 WHERE ATIVO = 1;",
+      "SELECT BAIRRO, COUNT(*) FROM ALUNO WHERE ATIVO = 1 ORDER BY BAIRRO GROUP BY BAIRRO HAVING COUNT(*) > 10;"
+    ],
+    "answer": 1,
+    "explanation": "A ordem é SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY. WHERE filtra linhas; GROUP BY forma grupos e HAVING filtra esses grupos.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-08-v2",
+    "base": "sm2-08",
+    "group": "sm2",
+    "title": "Subconsulta com IN",
+    "prompt": "Considere o vínculo por CODIGOD e a consulta abaixo. Qual é sua finalidade?",
+    "options": [
+      "Exibir somente departamentos sem registros em EMPREGADO.",
+      "Exibir todos os departamentos, mesmo sem associação.",
+      "Exibir somente departamentos com dois ou mais registros em EMPREGADO.",
+      "Exibir todos os registros de EMPREGADO, em vez de departamentos.",
+      "Exibir departamentos com pelo menos um registro associado em EMPREGADO."
+    ],
+    "answer": 4,
+    "explanation": "A consulta externa retorna linhas da tabela proprietária cujo código aparece no resultado interno. IN exige existência de associação, sem exigir dois registros ou mais.",
+    "sql": "SELECT CODIGOD, DESCRICAO\nFROM DEPARTAMENTO\nWHERE CODIGOD IN (SELECT DISTINCT CODIGOD FROM EMPREGADO);",
+    "statements": []
+  },
+  {
+    "id": "sm2-09-v2",
+    "base": "sm2-09",
+    "group": "sm2",
+    "title": "OR e UNION",
+    "prompt": "Na tabela EMPREGADO, CPF é único e não nulo. Qual código equivale ao filtro SEXO = 'F' OR SALARIO > 4000, selecionando NOME, CPF e SEXO?",
+    "options": [
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F';",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F' AND SALARIO > 4000;",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F' EXCEPT SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SALARIO > 4000;",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SALARIO > 4000;",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F' UNION SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SALARIO > 4000;"
+    ],
+    "answer": 4,
+    "explanation": "OR reúne quem atende a pelo menos uma condição. UNION reúne os dois resultados. A unicidade de CPF na projeção evita a diferença de multiplicidades que poderia existir sem essa condição.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-10-v2",
+    "base": "sm2-10",
+    "group": "sm2",
+    "title": "Junção externa na prática",
+    "prompt": "As tabelas NIVEL e CURSO se relacionam por CODIGONIVEL. O que a consulta abaixo retorna?",
+    "options": [
+      "Somente registros de NIVEL com correspondente em CURSO.",
+      "Todos os registros de CURSO, inclusive os sem correspondente em NIVEL.",
+      "Todos os registros das duas tabelas, incluindo os exclusivos de CURSO.",
+      "Todos os registros de NIVEL, inclusive os que não têm correspondente em CURSO.",
+      "Somente registros de NIVEL sem correspondente em CURSO."
+    ],
+    "answer": 3,
+    "explanation": "A tabela à esquerda é preservada pelo LEFT JOIN. Quando não existe registro associado à direita, suas colunas aparecem com NULL. ORDER BY apenas organiza a saída.",
+    "sql": "SELECT A.NOME, B.NOME\nFROM NIVEL A LEFT JOIN CURSO B\n  ON A.CODIGONIVEL = B.CODIGONIVEL\nORDER BY A.NOME;",
+    "statements": []
+  },
+  {
+    "id": "sm2-01-v3",
+    "base": "sm2-01",
+    "group": "sm2",
+    "title": "Produto entre colunas",
+    "prompt": "A tabela ITEM possui CODIGO, DESCRICAO, QTD e VALORUNITARIO. Qual SELECT retorna o identificador, a descrição e o produto da quantidade pelo valor unitário?",
+    "options": [
+      "SELECT CODIGO, DESCRICAO, QTD / VALORUNITARIO FROM ITEM;",
+      "SELECT CODIGO, DESCRICAO, QTD * VALORUNITARIO FROM ITEM;",
+      "SELECT SUM(QTD) FROM ITEM;",
+      "SELECT AVG(QTD) FROM ITEM;",
+      "SELECT CODIGO, QTD + VALORUNITARIO FROM ITEM;"
+    ],
+    "answer": 1,
+    "explanation": "O operador * multiplica as duas colunas. A consulta mantém o identificador e a descrição e acrescenta uma expressão calculada; não altera os valores armazenados.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-02-v3",
+    "base": "sm2-02",
+    "group": "sm2",
+    "title": "LIKE e comparação",
+    "prompt": "Qual consulta lista registros de CURSO cuja DESCRICAO começa com C e cuja CARGAHORARIA é menor que 100?",
+    "options": [
+      "SELECT * FROM CURSO WHERE DESCRICAO LIKE '%C' AND CARGAHORARIA < 100;",
+      "SELECT * FROM CURSO WHERE DESCRICAO LIKE '_C%' AND CARGAHORARIA < 100;",
+      "SELECT * FROM CURSO WHERE DESCRICAO NOT LIKE 'C%' AND CARGAHORARIA < 100;",
+      "SELECT * FROM CURSO WHERE DESCRICAO LIKE 'C%' AND CARGAHORARIA > 100;",
+      "SELECT * FROM CURSO WHERE DESCRICAO LIKE 'C%' AND CARGAHORARIA < 100;"
+    ],
+    "answer": 4,
+    "explanation": "LIKE 'C%' fixa a primeira letra e permite qualquer continuação. O operador < atende a menor que 100; AND exige as duas condições.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-03-v3",
+    "base": "sm2-03",
+    "group": "sm2",
+    "title": "Média",
+    "prompt": "Qual comando retorna a média de REMUNERACAO na tabela EMPREGADO?",
+    "options": [
+      "SELECT REMUNERACAO FROM EMPREGADO;",
+      "SELECT AVG(REMUNERACAO) FROM EMPREGADO;",
+      "SELECT MIN(REMUNERACAO) FROM EMPREGADO;",
+      "SELECT MAX(REMUNERACAO) FROM EMPREGADO;",
+      "SELECT SUM(REMUNERACAO) FROM EMPREGADO;"
+    ],
+    "answer": 1,
+    "explanation": "AVG calcula a média dos valores não nulos. MIN e MAX retornam extremos; SUM calcula a soma; selecionar a coluna não produz a média.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-04-v3",
+    "base": "sm2-04",
+    "group": "sm2",
+    "title": "IN e ano de início",
+    "prompt": "Qual consulta retorna ESCOLA nos bairros 'Centro','Jardins','Lagoa', com ANOINICIO maior que 2015?",
+    "options": [
+      "SELECT * FROM ESCOLA WHERE BAIRRO IN ('Centro','Jardins','Lagoa') AND ANOINICIO = 2015;",
+      "SELECT * FROM ESCOLA WHERE BAIRRO LIKE ('Centro','Jardins','Lagoa') AND ANOINICIO > 2015;",
+      "SELECT * FROM ESCOLA WHERE BAIRRO NOT IN ('Centro','Jardins','Lagoa') AND ANOINICIO = 2015;",
+      "SELECT * FROM ESCOLA WHERE BAIRRO NOT IN ('Centro','Jardins','Lagoa') AND ANOINICIO > 2015;",
+      "SELECT * FROM ESCOLA WHERE BAIRRO IN ('Centro','Jardins','Lagoa') AND ANOINICIO > 2015;"
+    ],
+    "answer": 4,
+    "explanation": "IN testa se o bairro pertence à lista. AND combina essa condição com o ano estritamente maior que o limite. NOT IN faria a seleção contrária dos bairros.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-05-v3",
+    "base": "sm2-05",
+    "group": "sm2",
+    "title": "RIGHT OUTER JOIN",
+    "prompt": "Em SETOR JOIN FUNCIONARIO, deseja-se preservar todas as linhas de FUNCIONARIO, trazendo SETOR somente nas correspondências. Linhas exclusivas de SETOR não devem ser preservadas. Qual tipo usar?",
+    "options": [
+      "CROSS JOIN.",
+      "FULL OUTER JOIN.",
+      "INNER JOIN.",
+      "LEFT OUTER JOIN.",
+      "RIGHT OUTER JOIN."
+    ],
+    "answer": 4,
+    "explanation": "RIGHT OUTER JOIN preserva a tabela à direita. FULL também preservaria linhas exclusivas da esquerda, o que não é o resultado pedido.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-06-v3",
+    "base": "sm2-06",
+    "group": "sm2",
+    "title": "LEFT JOIN",
+    "prompt": "Uma consulta usa DEPARTAMENTO LEFT JOIN EMPREGADO. Qual regra geral explica seu resultado?",
+    "options": [
+      "Somente as linhas da esquerda que possuem duas correspondências.",
+      "Todas as linhas da esquerda e as correspondências da direita; sem par, a direita recebe NULL.",
+      "Todas as linhas dos dois lados, inclusive as exclusivas da direita.",
+      "Apenas as linhas que têm correspondência dos dois lados.",
+      "Todas as linhas da direita, sem preservar as da esquerda."
+    ],
+    "answer": 1,
+    "explanation": "LEFT JOIN mantém as ocorrências da tabela à esquerda. A falta de correspondência à direita é representada por NULL nas colunas desse lado.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-07-v3",
+    "base": "sm2-07",
+    "group": "sm2",
+    "title": "Ordem de GROUP BY",
+    "prompt": "Considerando a ordem escrita das cláusulas SQL, qual consulta agrupa CURSO por NIVEL e filtra os grupos corretamente?",
+    "options": [
+      "SELECT NIVEL, COUNT(*) FROM CURSO HAVING COUNT(*) > 3 ORDER BY NIVEL WHERE ATIVO = 1 GROUP BY NIVEL;",
+      "SELECT NIVEL, COUNT(*) FROM CURSO HAVING COUNT(*) > 3 WHERE ATIVO = 1 ORDER BY NIVEL GROUP BY NIVEL;",
+      "SELECT NIVEL, COUNT(*) FROM CURSO WHERE ATIVO = 1 GROUP BY NIVEL HAVING COUNT(*) > 3 ORDER BY NIVEL;",
+      "SELECT NIVEL, COUNT(*) FROM CURSO WHERE ATIVO = 1 ORDER BY NIVEL GROUP BY NIVEL HAVING COUNT(*) > 3;",
+      "SELECT NIVEL, COUNT(*) FROM CURSO ORDER BY NIVEL GROUP BY NIVEL HAVING COUNT(*) > 3 WHERE ATIVO = 1;"
+    ],
+    "answer": 2,
+    "explanation": "A ordem é SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY. WHERE filtra linhas; GROUP BY forma grupos e HAVING filtra esses grupos.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-08-v3",
+    "base": "sm2-08",
+    "group": "sm2",
+    "title": "Subconsulta com IN",
+    "prompt": "Considere o vínculo por CODIGOCATEGORIA e a consulta abaixo. Qual é sua finalidade?",
+    "options": [
+      "Exibir somente categorias com dois ou mais registros em PRODUTO.",
+      "Exibir categorias com pelo menos um registro associado em PRODUTO.",
+      "Exibir somente categorias sem registros em PRODUTO.",
+      "Exibir todos os categorias, mesmo sem associação.",
+      "Exibir todos os registros de PRODUTO, em vez de categorias."
+    ],
+    "answer": 1,
+    "explanation": "A consulta externa retorna linhas da tabela proprietária cujo código aparece no resultado interno. IN exige existência de associação, sem exigir dois registros ou mais.",
+    "sql": "SELECT CODIGOCATEGORIA, DESCRICAO\nFROM CATEGORIA\nWHERE CODIGOCATEGORIA IN (SELECT DISTINCT CODIGOCATEGORIA FROM PRODUTO);",
+    "statements": []
+  },
+  {
+    "id": "sm2-09-v3",
+    "base": "sm2-09",
+    "group": "sm2",
+    "title": "OR e UNION",
+    "prompt": "Na tabela EMPREGADO, CPF é único e não nulo. Qual código equivale ao filtro SEXO = 'F' OR SALARIO > 6000, selecionando NOME, CPF e SEXO?",
+    "options": [
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F' EXCEPT SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SALARIO > 6000;",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SALARIO > 6000;",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F';",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F' UNION SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SALARIO > 6000;",
+      "SELECT NOME, CPF, SEXO FROM EMPREGADO WHERE SEXO = 'F' AND SALARIO > 6000;"
+    ],
+    "answer": 3,
+    "explanation": "OR reúne quem atende a pelo menos uma condição. UNION reúne os dois resultados. A unicidade de CPF na projeção evita a diferença de multiplicidades que poderia existir sem essa condição.",
+    "sql": "",
+    "statements": []
+  },
+  {
+    "id": "sm2-10-v3",
+    "base": "sm2-10",
+    "group": "sm2",
+    "title": "Junção externa na prática",
+    "prompt": "As tabelas CLIENTE e PEDIDO se relacionam por CODIGOCLIENTE. O que a consulta abaixo retorna?",
+    "options": [
+      "Todos os registros das duas tabelas, incluindo os exclusivos de PEDIDO.",
+      "Somente registros de CLIENTE com correspondente em PEDIDO.",
+      "Somente registros de CLIENTE sem correspondente em PEDIDO.",
+      "Todos os registros de PEDIDO, inclusive os sem correspondente em CLIENTE.",
+      "Todos os registros de CLIENTE, inclusive os que não têm correspondente em PEDIDO."
+    ],
+    "answer": 4,
+    "explanation": "A tabela à esquerda é preservada pelo LEFT JOIN. Quando não existe registro associado à direita, suas colunas aparecem com NULL. ORDER BY apenas organiza a saída.",
+    "sql": "SELECT A.NOME, B.NOME\nFROM CLIENTE A LEFT JOIN PEDIDO B\n  ON A.CODIGOCLIENTE = B.CODIGOCLIENTE\nORDER BY A.NOME;",
+    "statements": []
+  }
+]

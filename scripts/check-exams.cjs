@@ -1,0 +1,44 @@
+const {createRequire}=require('node:module');
+const {chromium}=createRequire('C:/Users/davib/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/package.json')('playwright');
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const bank=JSON.parse(fs.readFileSync('public/exams.json','utf8'));
+(async()=>{
+ fs.mkdirSync('tmp',{recursive:true});
+ const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+ const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+ const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ const base=process.env.TEST_URL||'http://127.0.0.1:4173';
+ await page.goto(base+'/#simulados');await page.getByRole('heading',{name:'Simulados das imagens.'}).waitFor();
+ assert.ok(await page.getByRole('link',{name:'Simulados',exact:true}).isVisible());
+ await page.screenshot({path:'tmp/exams-mobile-home.png',fullPage:true});
+ await page.locator('[data-exam-start=sm1]').click();await page.locator('.exam-question').waitFor();
+ assert.equal(await page.locator('[data-exam-index]').count(),10);assert.equal(await page.locator('.feedback').count(),0);
+ let e=await page.evaluate(()=>JSON.parse(localStorage.getItem('bd-rev-exam-v1')));
+ assert.ok(e.ids.every(id=>id.startsWith('sm1')));
+ const q=bank.find(q=>q.id===e.ids[0]);await page.locator(`[data-exam-option="${q.answer}"]`).click();
+ assert.equal(await page.locator('.feedback').count(),0);assert.equal(await page.locator('.correct').count(),0);
+ await page.reload();await page.locator('.exam-question').waitFor();assert.equal(await page.locator('[data-exam-option][aria-pressed=true]').getAttribute('data-exam-option'),String(q.answer));
+ await page.locator('[data-exam-index="1"]').click();const second=bank.find(q=>q.id===e.ids[1]);
+ await page.locator(`[data-exam-option="${(second.answer+1)%5}"]`).click();
+ await page.screenshot({path:'tmp/exams-mobile-question.png',fullPage:true});
+ page.once('dialog',d=>d.dismiss());await page.locator('[data-exam-action=finish]').click();assert.equal(await page.locator('.exam-corrections').count(),0);
+ page.once('dialog',d=>d.accept());await page.locator('[data-exam-action=finish]').click();
+ await page.getByRole('heading',{name:'Agora, entenda cada resposta.'}).waitFor();
+ assert.equal(await page.locator('.exam-correction').count(),10);assert.ok((await page.locator('.exam-score').textContent()).includes('8 em branco'));
+ await page.locator('.exam-correction summary').first().click();await page.locator('.exam-correction[open] .feedback').waitFor();
+ await page.screenshot({path:'tmp/exams-mobile-result.png',fullPage:true});
+ await page.reload();await page.getByRole('heading',{name:'Agora, entenda cada resposta.'}).waitFor();
+ assert.equal(await page.evaluate(()=>localStorage.getItem('bd-rev-progress-v1')),null);
+ await page.goto(base+'/#simulados');await page.locator('[data-exam-start=sm2]').click();await page.locator('.exam-question').waitFor();
+ e=await page.evaluate(()=>JSON.parse(localStorage.getItem('bd-rev-exam-v1')));assert.ok(e.ids.every(id=>id.startsWith('sm2')));
+ // Completar todas as dez e verificar resultado e explicações de SQL.
+ for(let i=0;i<10;i++){
+  await page.locator(`[data-exam-index="${i}"]`).click();const q=bank.find(q=>q.id===e.ids[i]);await page.locator(`[data-exam-option="${q.answer}"]`).click();
+ }
+ await page.locator('[data-exam-action=finish]').click();await page.getByRole('heading',{name:'Agora, entenda cada resposta.'}).waitFor();
+ assert.ok((await page.locator('.result-circle').textContent()).includes('100%'));
+ await page.setViewportSize({width:320,height:740});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ await page.goto(base+'/#simulados');await page.getByRole('heading',{name:'Simulados das imagens.'}).waitFor();assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ await page.setViewportSize({width:1280,height:900});await page.screenshot({path:'tmp/exams-desktop.png',fullPage:true});
+ assert.deepEqual(errors,[]);await browser.close();console.log('Simulados OK: SM1/SM2, 10 temas, sem gabarito antecipado, reload, brancos, correção, progresso separado, celular 320/390 e desktop.');
+})().catch(e=>{console.error(e);process.exit(1);});

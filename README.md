@@ -8,6 +8,12 @@ Escolha nível, assunto e sessões de 10, 20 ou 50 questões. Confirme a respost
 
 ## Conteúdo
 
+### Aba Simulados
+
+60 questões adicionais, separadas do treino geral: três variações de cada uma das 20 questões-base dos SM1 e SM2 enviados. SM1 foca conceitos e comandos; SM2 foca consultas no mesmo nível introdutório. O misto combina os dois. Cada sessão sorteia 10 temas distintos, permite voltar e trocar respostas e revela o gabarito comentado apenas ao finalizar. Questões em branco são contadas à parte. Estado persistido em `bd-rev-exam-v1`, sem modificar o progresso do banco geral.
+
+Reconstruir: `python scripts/generate_exams.py`. Validar: `python scripts/generate_exams.py --check`. Testes: `node --test tests/*.test.js`.
+
 100 questões conceituais e 400 situações de SQL em 40 famílias com dados diferentes. Base temática: Sistema de banco de dados; Modelagem conceitual; Modelagem lógica e física; Criação e manipulação no PostgreSQL; Consulta com uma tabela; Consulta com várias tabelas; Praticando Banco de Dados. Não é gabarito oficial e os PDFs do curso não são publicados.
 
 Os 400 exemplos gerados usam SQL compartilhado entre PostgreSQL e SQLite moderno. O gerador executa cada consulta em um banco em memória para obter seu resultado. Particularidades exclusivas do PostgreSQL, como SERIAL, ILIKE e EXTRACT, são explicadas em questões conceituais ou no resumo. A correção automática dos resultados não substitui revisão pedagógica humana.

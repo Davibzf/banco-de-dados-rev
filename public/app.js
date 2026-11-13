@@ -1,10 +1,12 @@
 import { PROGRESS_KEY,SESSION_KEY,emptyProgress,readProgress,filterQuestions,buildSession,recordAnswer } from './core.js';
+import {createExamController} from './exams.js';
 
 const TOPICS={fundamentos:'Fundamentos',modelagem:'Modelagem conceitual',chaves:'Chaves e relações',normalizacao:'Normalização',postgresql:'PostgreSQL e DDL',transacoes:'Transações e ACID',consultas:'SELECT e filtros',agregacao:'Agregação e grupos',juncoes:'Junções (JOIN)',subconsultas:'Subconsultas',conjuntos:'Operadores de conjunto',desempenho:'Views e desempenho'};
 const LEVELS={facil:'Fácil',medio:'Médio',dificil:'Difícil'};
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const store={getItem:key=>window.localStorage.getItem(key),setItem:(key,value)=>window.localStorage.setItem(key,value),removeItem:key=>window.localStorage.removeItem(key)};
 const main=document.querySelector('#main');
+const exams=createExamController(main,{esc,syntax,head,empty,save,store,navigate,toast,rerender:()=>render()});
 let bank=[],byId=new Map(),progress=readProgress(store),session=null,choice=null,reviewTab='erros',libraryPage=0;
 let config={level:'todos',topic:'todos',mode:'todos',count:10};
 let library={level:'todos',topic:'todos',search:''};
@@ -119,8 +121,8 @@ function render(){
  const route=(location.hash.slice(1)||'inicio').split('/')[0];
  document.querySelectorAll('[data-nav]').forEach(a=>{const current=a.dataset.nav===route||(route==='questao'&&a.dataset.nav==='treinar');if(current)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
  const pages={inicio:home,treinar:setup,biblioteca:libraryView,revisar:review,resumo:summary,questao:quiz,resultado:result};
- main.innerHTML=route==='explicacao'?detail(location.hash.split('/')[1]):(pages[route]||home)();
- document.title=`${({inicio:'Seu espaço de estudo',treinar:'Montar treino',biblioteca:'500 questões',revisar:'Revisar',resumo:'Resumo',questao:'Treino',resultado:'Resultado',explicacao:'Explicação'})[route]||'Banco de Dados'} · BD em dia`;
+ main.innerHTML=route==='simulados'?exams.render():route==='explicacao'?detail(location.hash.split('/')[1]):(pages[route]||home)();
+ document.title=`${({inicio:'Seu espaço de estudo',treinar:'Montar treino',biblioteca:'500 questões',revisar:'Revisar',resumo:'Resumo',questao:'Treino',resultado:'Resultado',explicacao:'Explicação',simulados:'Simulados SM1 e SM2'})[route]||'Banco de Dados'} · BD em dia`;
 }
 main.addEventListener('click',event=>{
  const target=event.target.closest('button,a');if(!target)return;
